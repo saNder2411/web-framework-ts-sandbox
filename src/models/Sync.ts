@@ -13,7 +13,7 @@ export class Sync<T extends HasId> {
     return Axios.get(`${this.rootUrl}/${id}`);
   }
 
-  save(data: T): AxiosPromise {
+  save(data: T): AxiosPromise<T> {
     const { id }= data;
 
     if (id) {
