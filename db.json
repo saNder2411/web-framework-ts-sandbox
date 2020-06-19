@@ -52,6 +52,11 @@
       "name": "new record",
       "age": 0,
       "id": 11
+    },
+    {
+      "name": "Rusik",
+      "age": 20,
+      "id": 12
     }
   ]
 }
