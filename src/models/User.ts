@@ -2,6 +2,7 @@ import { Eventing } from './Eventing';
 import { ApiSync } from './ApiSync';
 import { Attributes } from './Attributes';
 import { Model } from './Model';
+import { Collection } from './Collection';
 
 
 
@@ -23,8 +24,8 @@ export class User extends Model<UserProps> {
     )
   }
 
-  isAdminUser(): boolean {
-    return this.get('id') === 1;
+  static createUserCollection(): Collection<User, UserProps> {
+    return new Collection(rootUrl, (json: UserProps): User => User.createUser(json));
   }
 
 }
