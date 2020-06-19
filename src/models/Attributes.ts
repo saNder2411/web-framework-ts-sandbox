@@ -1,6 +1,8 @@
 export class Attributes<T> {
 
-  constructor(public data: T) {}
+  constructor(
+    public data: T
+    ) {}
 
   get = <K extends keyof T>(key: K): T[K] => {
     return this.data[key];

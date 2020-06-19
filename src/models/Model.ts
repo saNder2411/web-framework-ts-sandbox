@@ -12,10 +12,8 @@ interface Sync<T> {
 
 }
 
-type Callback = () => void;
-
 interface Events {
-  on: (eventName: string, callback: Callback) => void;
+  on: (eventName: string, callback: () => void) => void;
   trigger: (eventName: string) => void;
 }
 
@@ -64,7 +62,6 @@ export class Model<T extends HasId> {
     this.sync.save(this.attributes.getAll())
       .then((): void => this.trigger('save'))
       .catch(() => this.trigger('error'));
-
   }
 
 }
