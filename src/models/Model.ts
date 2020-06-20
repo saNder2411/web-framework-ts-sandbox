@@ -55,7 +55,9 @@ export class Model<T extends HasId> {
     
     this.sync.fetch(id)
       .then(({ data }: AxiosResponse<T>): void => this.set(data))
-      .catch((error): void => console.log(error));
+      .catch((error): void => {
+        throw new Error(error);
+      });
   }
 
   save(): void {
